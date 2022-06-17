@@ -1,17 +1,16 @@
 function rgb(r,g,b){
+  //test if one parameter is negative or too high
   function converter (a){
     if(a <= 0)
-    return 0
+    return '0'
     else if(a > 255)
-    return 255
-        return a
+    return 'F'
+    return a.toString(16)
   }
   if (r < 0 || g < 0 || b <0){
 
   }
-  let rHex = converter(r).toString(16)
-  let gHex = converter(g).toString(16)
-  let bHex = converter(b).toString(16)
+   //double the single elements
   function doubler(a){
     if(a.length < 2 && ['A','B','C','D','E','F'].includes(a))
     return a+a
@@ -21,7 +20,7 @@ function rgb(r,g,b){
   }
  
 
- return(doubler(rHex) + doubler(gHex) + doubler(bHex)).toUpperCase()
+ return(doubler(converter(r)) + doubler(converter(g)) + doubler(converter(b))).toUpperCase()
 }
 
 let myNumber = 47;
