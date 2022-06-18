@@ -1,3 +1,13 @@
+function rgbe(r, g, b){
+  return toHex(r)+toHex(g)+toHex(b);
+}
+
+function toHex(d) {
+    if(d < 0 ) {return "00";}
+    if(d > 255 ) {return "FF";}
+    return  ("0"+(Number(d).toString(16))).slice(-2).toUpperCase()
+}
+
 function rgb(r,g,b){
   //test if one parameter is negative or too high
   function converter (a){
@@ -12,9 +22,8 @@ function rgb(r,g,b){
   }
    //double the single elements
   function doubler(a){
-    if(a.length < 2 && ['A','B','C','D','E','F'].includes(a))
-    return a+a
-    else if (a.length < 2)
+    
+    if (a.length < 2)
     return '0' + a
     return a
   }
@@ -23,8 +32,10 @@ function rgb(r,g,b){
  return(doubler(converter(r)) + doubler(converter(g)) + doubler(converter(b))).toUpperCase()
 }
 
-let myNumber = 47;
+
+let myNumber = 10;
 
 console.log(myNumber.toString(16))
 
-console.log(rgb(173,255,47))
+console.log(rgb(173,255,10))
+console.log(rgbe(173,255,10))
